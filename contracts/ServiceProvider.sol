@@ -1,9 +1,9 @@
 pragma solidity 0.4.24;
 
-import "./FilmRentalService.sol";
+import "./Service.sol";
 
 /**
- * Example contract that takes a service in its constructor, a film rental service in this case,
+ * Example contract that takes a service in its constructor, a film rental service in this example,
  * and wraps it in functionality that enables users to subscribe to a free trial for
  * a day.
  */
@@ -11,7 +11,7 @@ contract ServiceProvider {
 
     address public owner;
 
-    FilmRentalService private filmService;
+    Service private service;
 
     enum SubscriptionStatus {ACTIVE,EXPIRED,NOT_SUBSCRIBED}
 
@@ -27,10 +27,10 @@ contract ServiceProvider {
     //Simple error message
     string constant public notsubscribed = "You are not subscribed";
 
-    constructor(address _filmService) public  {
+    constructor(address _service) public  {
         owner = msg.sender;
         currentDay = 1;
-        filmService = FilmRentalService(_filmService);
+        service = Service(_service);
     }
 
     /**
@@ -71,7 +71,7 @@ contract ServiceProvider {
         if(getSubscriptionStatus(username) != uint8(SubscriptionStatus.ACTIVE)) {
             return notsubscribed;
         }
-        string memory result = filmService.getFromService();
+        string memory result = service.getFromService();
         return result;
     }
 
