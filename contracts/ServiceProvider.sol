@@ -98,7 +98,7 @@ contract ServiceProvider {
     }
 
     /**
-     * Returns a URL from the service (a film in this case) that the user is subscribed to
+     * Returns a URL from the service that the user is subscribed to
      */
     function callService() view external returns(string) {
         address user = msg.sender;
