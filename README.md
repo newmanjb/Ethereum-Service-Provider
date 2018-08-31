@@ -1,5 +1,4 @@
 # Ethereum-Service-Provider
-Truffle project containing a smart contract written in solidity that allows users to subscribe to a one-day trial for any service (a film rental service in this example).  The contract includes a unit test (also written in solidity).
+Truffle project containing smart contracts written in solidity that allow users to subscribe to either a one-day free trial or a paid longer-term subscription to a particular service, which is configurable. The contracts are fully covered by unit tests (also written in solidity) that use a film rental service as an example.
 
-@todo - provide a list of services that can be subscribed to, not just one
-@todo - add an option for proper subscriptions that involves money transfer every month
+@todo - ServiceProvider could manage > 1 service and allow each user to subscribe to >1.
