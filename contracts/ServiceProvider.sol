@@ -3,11 +3,14 @@ pragma solidity 0.4.24;
 import "./Service.sol";
 
 /**
- * Example contract that takes a service in its constructor, a film rental service in this example,
- * and wraps it in functionality that enables users to subscribe to a free trial for
- * a day.
+ * A contract that takes a service in its constructor and wraps it in functionality
+ * that enables users to subscribe to a free trial for a day or to enter a paid subscription
+ * for more than one day.  A film rental service is used in the unit tests.
  */
 contract ServiceProvider {
+
+    //A bit cheap but it makes it easier to test
+    uint constant public feePerDayInWei = 3 wei;
 
     address public owner;
 
@@ -16,11 +19,10 @@ contract ServiceProvider {
     enum SubscriptionStatus {ACTIVE,EXPIRED,NOT_SUBSCRIBED}
 
     struct UserProfile {
-        uint8 expirationDay;
-        bool inUse;
+        uint expirationDay;
     }
 
-    mapping(string => UserProfile) private userProfiles;
+    mapping(address => UserProfile) private userProfiles;
 
     uint8 public currentDay;
 
@@ -37,38 +39,70 @@ contract ServiceProvider {
      * Returns whether the user's subscription is active (0), expired (1) or
      * non-existent (2)
      */
-    function getSubscriptionStatus(string username) view public returns(uint8) {
-        uint8 expirationDay = userProfiles[username].expirationDay;
+    function getSubscriptionStatus() view public returns(uint8) {
+        address user = msg.sender;
+        return doGetSubscriptionStatus(user);
+    }
+
+    function doGetSubscriptionStatus(address user) view private returns (uint8) {
+        uint expirationDay = userProfiles[user].expirationDay;
         if(expirationDay == 0){
             return uint8(SubscriptionStatus.NOT_SUBSCRIBED);
         }
         else if(currentDay >= expirationDay) {
             return uint8(SubscriptionStatus.EXPIRED);
-	      }
+        }
         else {
             return uint8(SubscriptionStatus.ACTIVE);
         }
     }
 
     /**
-     * Subscribes the given user name, which means that they will be able to access
+     * Subscribes the given address to the free trial`, which means that they will be able to access
      * the service for a day.
      */
-    function subscribeToTrial(string username) external returns (bool) {
-        if(getSubscriptionStatus(username) != uint8(SubscriptionStatus.NOT_SUBSCRIBED)){
+    function subscribeToTrial() external returns (bool) {
+        address user = msg.sender;
+        if(doGetSubscriptionStatus(user) != uint8(SubscriptionStatus.NOT_SUBSCRIBED)){
            return false;
         }
 
-        uint8 expirationDay = currentDay + 1;
-        userProfiles[username] = UserProfile(expirationDay, false);
+        uint expirationDay = currentDay + 1;
+        userProfiles[user] = UserProfile(expirationDay);
         return true;
+    }
+
+    /**
+     * Enables the caller to pay for a subscription for a number of days based on the
+     * value provided.
+     */
+    function subscribeFor() external payable returns (uint) {
+
+        address user = msg.sender;
+        uint feeProvided = msg.value;
+        uint numDaysPaidFor = feeProvided / feePerDayInWei;
+
+        if(numDaysPaidFor < 1) {
+            return 0;
+        }
+
+        uint newExpirationDay = currentDay + numDaysPaidFor;
+        userProfiles[user] = UserProfile(uint(newExpirationDay));
+        return numDaysPaidFor;
+    }
+
+    /**
+     * Fallback function for receiving ether
+     */
+    function () public payable {
     }
 
     /**
      * Returns a URL from the service (a film in this case) that the user is subscribed to
      */
-    function callService(string username) view external returns(string) {
-        if(getSubscriptionStatus(username) != uint8(SubscriptionStatus.ACTIVE)) {
+    function callService() view external returns(string) {
+        address user = msg.sender;
+        if(doGetSubscriptionStatus(user) != uint8(SubscriptionStatus.ACTIVE)) {
             return notsubscribed;
         }
         string memory result = service.getFromService();
@@ -84,6 +118,10 @@ contract ServiceProvider {
      */
     function setDay(uint8 _day) external isOwner(msg.sender) {
         currentDay = _day;
+    }
+
+    function getDay() view external isOwner(msg.sender) returns (uint8) {
+        return currentDay;
     }
 
     modifier isOwner(address a) {

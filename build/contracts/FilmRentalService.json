@@ -16,20 +16,20 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5061013f806100206000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806398b8010514610046575b600080fd5b34801561005257600080fd5b5061005b6100d6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009b578082015181840152602081019050610080565b50505050905090810190601f1680156100c85780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601781526020017f7777772e6765744d7946696c6d2e636f6d2f6c6f67616e0000000000000000008152509050905600a165627a7a723058205ea36bea87060fd78d659e178b17d6d87cf3ee6213e0d14832b893e48f306ac50029",
-  "deployedBytecode": "0x608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806398b8010514610046575b600080fd5b34801561005257600080fd5b5061005b6100d6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009b578082015181840152602081019050610080565b50505050905090810190601f1680156100c85780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601781526020017f7777772e6765744d7946696c6d2e636f6d2f6c6f67616e0000000000000000008152509050905600a165627a7a723058205ea36bea87060fd78d659e178b17d6d87cf3ee6213e0d14832b893e48f306ac50029",
-  "sourceMap": "91:143:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;91:143:0;;;;;;;",
-  "deployedSourceMap": "91:143:0:-;;;;;;;;;;;;;;;;;;;;;;;;126:106;;8:9:-1;5:2;;;30:1;27;20:12;5:2;126:106:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;126:106:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;175:6;193:32;;;;;;;;;;;;;;;;;;;;126:106;:::o",
-  "source": "pragma solidity 0.4.24;\n\n\n/**\n * Simple example service that returns the URL to a film\n */\ncontract FilmRentalService {\n\n\n    function getFromService() external pure returns (string) {\n        return \"www.getMyFilm.com/logan\";\n    }\n}\n",
+  "bytecode": "0x608060405234801561001057600080fd5b5061013f806100206000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806398b8010514610046575b600080fd5b34801561005257600080fd5b5061005b6100d6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009b578082015181840152602081019050610080565b50505050905090810190601f1680156100c85780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601781526020017f7777772e6765744d7946696c6d2e636f6d2f6c6f67616e0000000000000000008152509050905600a165627a7a723058208dc4191dbafd2c54f2067740b63bc8968cea071de55cde536e1c6a8f1288d4b00029",
+  "deployedBytecode": "0x608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806398b8010514610046575b600080fd5b34801561005257600080fd5b5061005b6100d6565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009b578082015181840152602081019050610080565b50505050905090810190601f1680156100c85780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601781526020017f7777772e6765744d7946696c6d2e636f6d2f6c6f67616e0000000000000000008152509050905600a165627a7a723058208dc4191dbafd2c54f2067740b63bc8968cea071de55cde536e1c6a8f1288d4b00029",
+  "sourceMap": "117:154:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;117:154:0;;;;;;;",
+  "deployedSourceMap": "117:154:0:-;;;;;;;;;;;;;;;;;;;;;;;;163:106;;8:9:-1;5:2;;;30:1;27;20:12;5:2;163:106:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;163:106:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;212:6;230:32;;;;;;;;;;;;;;;;;;;;163:106;:::o",
+  "source": "pragma solidity 0.4.24;\n\n\nimport \"./Service.sol\";\n\n\n/**\n * Simple example service that returns the URL to a film\n */\ncontract FilmRentalService is Service {\n\n\n    function getFromService() external pure returns (string) {\n        return \"www.getMyFilm.com/logan\";\n    }\n}\n",
   "sourcePath": "/home/josh/serviceProvider/contracts/FilmRentalService.sol",
   "ast": {
     "absolutePath": "/home/josh/serviceProvider/contracts/FilmRentalService.sol",
     "exportedSymbols": {
       "FilmRentalService": [
-        10
+        13
       ]
     },
-    "id": 11,
+    "id": 14,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -43,36 +43,69 @@
         "src": "0:23:0"
       },
       {
-        "baseContracts": [],
-        "contractDependencies": [],
+        "absolutePath": "/home/josh/serviceProvider/contracts/Service.sol",
+        "file": "./Service.sol",
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "scope": 14,
+        "sourceUnit": 79,
+        "src": "26:23:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3,
+              "name": "Service",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 78,
+              "src": "147:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Service_$78",
+                "typeString": "contract Service"
+              }
+            },
+            "id": 4,
+            "nodeType": "InheritanceSpecifier",
+            "src": "147:7:0"
+          }
+        ],
+        "contractDependencies": [
+          78
+        ],
         "contractKind": "contract",
         "documentation": "Simple example service that returns the URL to a film",
         "fullyImplemented": true,
-        "id": 10,
+        "id": 13,
         "linearizedBaseContracts": [
-          10
+          13,
+          78
         ],
         "name": "FilmRentalService",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 8,
+              "id": 11,
               "nodeType": "Block",
-              "src": "183:49:0",
+              "src": "220:49:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "7777772e6765744d7946696c6d2e636f6d2f6c6f67616e",
-                    "id": 6,
+                    "id": 9,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "string",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "200:25:0",
+                    "src": "237:25:0",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_stringliteral_edb0bbb240c58004a3d1d99c9fe4334ae5dc106bb9551390e85e2f8a52302f5d",
@@ -80,15 +113,15 @@
                     },
                     "value": "www.getMyFilm.com/logan"
                   },
-                  "functionReturnParameters": 5,
-                  "id": 7,
+                  "functionReturnParameters": 8,
+                  "id": 10,
                   "nodeType": "Return",
-                  "src": "193:32:0"
+                  "src": "230:32:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 9,
+            "id": 12,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -96,23 +129,23 @@
             "name": "getFromService",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "149:2:0"
+              "src": "186:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 5,
+              "id": 8,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4,
+                  "id": 7,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9,
-                  "src": "175:6:0",
+                  "scope": 12,
+                  "src": "212:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -120,10 +153,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3,
+                    "id": 6,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "175:6:0",
+                    "src": "212:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -133,29 +166,29 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "174:8:0"
+              "src": "211:8:0"
             },
-            "scope": 10,
-            "src": "126:106:0",
+            "scope": 13,
+            "src": "163:106:0",
             "stateMutability": "pure",
-            "superFunction": null,
+            "superFunction": 77,
             "visibility": "external"
           }
         ],
-        "scope": 11,
-        "src": "91:143:0"
+        "scope": 14,
+        "src": "117:154:0"
       }
     ],
-    "src": "0:235:0"
+    "src": "0:272:0"
   },
   "legacyAST": {
     "absolutePath": "/home/josh/serviceProvider/contracts/FilmRentalService.sol",
     "exportedSymbols": {
       "FilmRentalService": [
-        10
+        13
       ]
     },
-    "id": 11,
+    "id": 14,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -169,36 +202,69 @@
         "src": "0:23:0"
       },
       {
-        "baseContracts": [],
-        "contractDependencies": [],
+        "absolutePath": "/home/josh/serviceProvider/contracts/Service.sol",
+        "file": "./Service.sol",
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "scope": 14,
+        "sourceUnit": 79,
+        "src": "26:23:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3,
+              "name": "Service",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 78,
+              "src": "147:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Service_$78",
+                "typeString": "contract Service"
+              }
+            },
+            "id": 4,
+            "nodeType": "InheritanceSpecifier",
+            "src": "147:7:0"
+          }
+        ],
+        "contractDependencies": [
+          78
+        ],
         "contractKind": "contract",
         "documentation": "Simple example service that returns the URL to a film",
         "fullyImplemented": true,
-        "id": 10,
+        "id": 13,
         "linearizedBaseContracts": [
-          10
+          13,
+          78
         ],
         "name": "FilmRentalService",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 8,
+              "id": 11,
               "nodeType": "Block",
-              "src": "183:49:0",
+              "src": "220:49:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "7777772e6765744d7946696c6d2e636f6d2f6c6f67616e",
-                    "id": 6,
+                    "id": 9,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "string",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "200:25:0",
+                    "src": "237:25:0",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_stringliteral_edb0bbb240c58004a3d1d99c9fe4334ae5dc106bb9551390e85e2f8a52302f5d",
@@ -206,15 +272,15 @@
                     },
                     "value": "www.getMyFilm.com/logan"
                   },
-                  "functionReturnParameters": 5,
-                  "id": 7,
+                  "functionReturnParameters": 8,
+                  "id": 10,
                   "nodeType": "Return",
-                  "src": "193:32:0"
+                  "src": "230:32:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 9,
+            "id": 12,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -222,23 +288,23 @@
             "name": "getFromService",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "149:2:0"
+              "src": "186:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 5,
+              "id": 8,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4,
+                  "id": 7,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9,
-                  "src": "175:6:0",
+                  "scope": 12,
+                  "src": "212:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -246,10 +312,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3,
+                    "id": 6,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "175:6:0",
+                    "src": "212:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -259,26 +325,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "174:8:0"
+              "src": "211:8:0"
             },
-            "scope": 10,
-            "src": "126:106:0",
+            "scope": 13,
+            "src": "163:106:0",
             "stateMutability": "pure",
-            "superFunction": null,
+            "superFunction": 77,
             "visibility": "external"
           }
         ],
-        "scope": 11,
-        "src": "91:143:0"
+        "scope": 14,
+        "src": "117:154:0"
       }
     ],
-    "src": "0:235:0"
+    "src": "0:272:0"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "4447": {
+      "events": {},
+      "links": {},
+      "address": "0x345ca3e014aaf5dca488057592ee47305d9b3e10",
+      "transactionHash": "0x39699d659f403d7e3bfde0ae09bd7f43a78a8f96ccebe0125ae7529c9bf71f9b"
+    }
+  },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-01T12:52:15.667Z"
+  "updatedAt": "2018-08-31T09:38:05.597Z"
 }
