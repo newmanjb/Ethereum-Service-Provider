@@ -13,5 +13,8 @@ contract FilmRentalService is Service {
     function getFromService() external pure returns (string) {
         return "www.getMyFilm.com/logan";
     }
-}
 
+    function getServiceName() external pure returns (string) {
+      return "FilmRentalService";
+    }
+}

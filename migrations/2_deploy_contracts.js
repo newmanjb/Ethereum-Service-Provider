@@ -3,5 +3,5 @@ var ServiceProvider = artifacts.require("ServiceProvider");
 
 module.exports = async function(deployer) {
   await deployer.deploy(Service1);
-  deployer.deploy(ServiceProvider,Service1.address);
+  deployer.deploy(ServiceProvider,[Service1.address]);
 };

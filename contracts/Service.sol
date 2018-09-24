@@ -6,4 +6,6 @@ pragma solidity 0.4.24;
  */
 interface Service {
     function getFromService() external pure returns (string);
+
+    function getServiceName() external pure returns (string);
 }

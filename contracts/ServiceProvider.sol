@@ -3,9 +3,10 @@ pragma solidity 0.4.24;
 import "./Service.sol";
 
 /**
- * A contract that takes a service in its constructor and wraps it in functionality
- * that enables users to subscribe to a free trial for a day or to enter a paid subscription
- * for more than one day.  A film rental service is used in the unit tests.
+ * A contract that takes a list of services in its constructor and wraps it in functionality
+ * that enables users to subscribe to a free trial to one or more services for one day only
+ * or to enter a paid subscription to one or more services, with the time period being
+ * dependent on how much they pay.
  */
 contract ServiceProvider {
 
@@ -14,38 +15,45 @@ contract ServiceProvider {
 
     address public owner;
 
-    Service private service;
-
     enum SubscriptionStatus {ACTIVE,EXPIRED,NOT_SUBSCRIBED}
 
-    struct UserProfile {
+    //Service names to services
+    mapping(string => Service) private services;
+
+    struct SubscriptionProfile {
         uint expirationDay;
     }
 
-    mapping(address => UserProfile) private userProfiles;
+    //This map is keyed by username with the values being other maps,
+    //keyed by service name, that point to the profile for the user's subscription
+    //to that service.
+    mapping(address => mapping(string=>SubscriptionProfile)) private subscriptionProfiles;
 
     uint8 public currentDay;
 
     //Simple error message
     string constant public notsubscribed = "You are not subscribed";
 
-    constructor(address _service) public  {
+    constructor(address[] memory _services) public  {
         owner = msg.sender;
         currentDay = 1;
-        service = Service(_service);
+        for(uint i = 0 ; i < _services.length; i++) {
+            Service service = Service(_services[i]);
+            services[service.getServiceName()] = service;
+        }
     }
 
     /**
      * Returns whether the user's subscription is active (0), expired (1) or
      * non-existent (2)
      */
-    function getSubscriptionStatus() view public returns(uint8) {
+    function getSubscriptionStatus(string serviceName) view public returns(uint8) {
         address user = msg.sender;
-        return doGetSubscriptionStatus(user);
+        return doGetSubscriptionStatus(user, serviceName);
     }
 
-    function doGetSubscriptionStatus(address user) view private returns (uint8) {
-        uint expirationDay = userProfiles[user].expirationDay;
+    function doGetSubscriptionStatus(address user, string serviceName) view private returns (uint8) {
+        uint expirationDay = subscriptionProfiles[user][serviceName].expirationDay;
         if(expirationDay == 0){
             return uint8(SubscriptionStatus.NOT_SUBSCRIBED);
         }
@@ -59,24 +67,24 @@ contract ServiceProvider {
 
     /**
      * Subscribes the given address to the free trial`, which means that they will be able to access
-     * the service for a day.
+     * the service specified for a day.
      */
-    function subscribeToTrial() external returns (bool) {
+    function subscribeToTrial(string serviceName) external returns (bool) {
         address user = msg.sender;
-        if(doGetSubscriptionStatus(user) != uint8(SubscriptionStatus.NOT_SUBSCRIBED)){
+        if(doGetSubscriptionStatus(user, serviceName) != uint8(SubscriptionStatus.NOT_SUBSCRIBED)){
            return false;
         }
 
         uint expirationDay = currentDay + 1;
-        userProfiles[user] = UserProfile(expirationDay);
+        subscriptionProfiles[user][serviceName] = SubscriptionProfile(expirationDay);
         return true;
     }
 
     /**
-     * Enables the caller to pay for a subscription for a number of days based on the
+     * Enables the caller to pay for a subscription to the given service for a number of days based on the
      * value provided.
      */
-    function subscribeFor() external payable returns (uint) {
+    function subscribeFor(string serviceName) external payable returns (uint) {
 
         address user = msg.sender;
         uint feeProvided = msg.value;
@@ -87,7 +95,7 @@ contract ServiceProvider {
         }
 
         uint newExpirationDay = currentDay + numDaysPaidFor;
-        userProfiles[user] = UserProfile(uint(newExpirationDay));
+        subscriptionProfiles[user][serviceName] = SubscriptionProfile(uint(newExpirationDay));
         return numDaysPaidFor;
     }
 
@@ -98,14 +106,15 @@ contract ServiceProvider {
     }
 
     /**
-     * Returns a URL from the service that the user is subscribed to
+     * Returns a URL from the service that the user is subscribed to e.g. a URL they can
+     * use to watch a film from a film rental service.
      */
-    function callService() view external returns(string) {
+    function callService(string serviceName) view external returns(string) {
         address user = msg.sender;
-        if(doGetSubscriptionStatus(user) != uint8(SubscriptionStatus.ACTIVE)) {
+        if(doGetSubscriptionStatus(user, serviceName) != uint8(SubscriptionStatus.ACTIVE)) {
             return notsubscribed;
         }
-        string memory result = service.getFromService();
+        string memory result = services[serviceName].getFromService();
         return result;
     }
 
