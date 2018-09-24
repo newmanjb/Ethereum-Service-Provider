@@ -1,5 +1,5 @@
 {
-  "contractName": "FilmRentalService",
+  "contractName": "EBookDownloadService",
   "abi": [
     {
       "constant": true,
@@ -30,40 +30,40 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50610217806100206000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806384dc32db1461005157806398b80105146100e1575b600080fd5b34801561005d57600080fd5b50610066610171565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100a657808201518184015260208101905061008b565b50505050905090810190601f1680156100d35780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156100ed57600080fd5b506100f66101ae565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013657808201518184015260208101905061011b565b50505050905090810190601f1680156101635780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601181526020017f46696c6d52656e74616c53657276696365000000000000000000000000000000815250905090565b60606040805190810160405280601781526020017f7777772e6765744d7946696c6d2e636f6d2f6c6f67616e0000000000000000008152509050905600a165627a7a723058206fad45a52294f29d6c55e2bf5f3623676feb7212c2c5f50328ab6e002d4e74ed0029",
-  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806384dc32db1461005157806398b80105146100e1575b600080fd5b34801561005d57600080fd5b50610066610171565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100a657808201518184015260208101905061008b565b50505050905090810190601f1680156100d35780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156100ed57600080fd5b506100f66101ae565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013657808201518184015260208101905061011b565b50505050905090810190601f1680156101635780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601181526020017f46696c6d52656e74616c53657276696365000000000000000000000000000000815250905090565b60606040805190810160405280601781526020017f7777772e6765744d7946696c6d2e636f6d2f6c6f67616e0000000000000000008152509050905600a165627a7a723058206fad45a52294f29d6c55e2bf5f3623676feb7212c2c5f50328ab6e002d4e74ed0029",
-  "sourceMap": "117:258:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;117:258:1;;;;;;;",
-  "deployedSourceMap": "117:258:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;275:98;;8:9:-1;5:2;;;30:1;27;20:12;5:2;275:98:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;275:98:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;163:106;;8:9:-1;5:2;;;30:1;27;20:12;5:2;163:106:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;163:106:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;275:98;324:6;340:26;;;;;;;;;;;;;;;;;;;;275:98;:::o;163:106::-;212:6;230:32;;;;;;;;;;;;;;;;;;;;163:106;:::o",
-  "source": "pragma solidity 0.4.24;\n\n\nimport \"./Service.sol\";\n\n\n/**\n * Simple example service that returns the URL to a film\n */\ncontract FilmRentalService is Service {\n\n\n    function getFromService() external pure returns (string) {\n        return \"www.getMyFilm.com/logan\";\n    }\n\n    function getServiceName() external pure returns (string) {\n      return \"FilmRentalService\";\n    }\n}\n",
-  "sourcePath": "/home/josh/Ethereum-Service-Provider/contracts/FilmRentalService.sol",
+  "bytecode": "0x608060405234801561001057600080fd5b50610264806100206000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806384dc32db1461005157806398b80105146100e1575b600080fd5b34801561005d57600080fd5b50610066610171565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100a657808201518184015260208101905061008b565b50505050905090810190601f1680156100d35780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156100ed57600080fd5b506100f66101ae565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013657808201518184015260208101905061011b565b50505050905090810190601f1680156101635780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601481526020017f45426f6f6b446f776e6c6f616453657276696365000000000000000000000000815250905090565b6060608060405190810160405280604581526020017f7777772e65626f6f6b732e636f6d2f666966747953686164657342617272656c81526020017f5363726170696e675f7768617443687269737469616e477265797348616d737481526020017f65725361770000000000000000000000000000000000000000000000000000008152509050905600a165627a7a7230582043a62ed839b58b81ffcd060cab96622a7212201dc5db2898d4af89f689ce24270029",
+  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806384dc32db1461005157806398b80105146100e1575b600080fd5b34801561005d57600080fd5b50610066610171565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100a657808201518184015260208101905061008b565b50505050905090810190601f1680156100d35780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156100ed57600080fd5b506100f66101ae565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561013657808201518184015260208101905061011b565b50505050905090810190601f1680156101635780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040805190810160405280601481526020017f45426f6f6b446f776e6c6f616453657276696365000000000000000000000000815250905090565b6060608060405190810160405280604581526020017f7777772e65626f6f6b732e636f6d2f666966747953686164657342617272656c81526020017f5363726170696e675f7768617443687269737469616e477265797348616d737481526020017f65725361770000000000000000000000000000000000000000000000000000008152509050905600a165627a7a7230582043a62ed839b58b81ffcd060cab96622a7212201dc5db2898d4af89f689ce24270029",
+  "sourceMap": "126:312:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;126:312:0;;;;;;;",
+  "deployedSourceMap": "126:312:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;333:103;;8:9:-1;5:2;;;30:1;27;20:12;5:2;333:103:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;333:103:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;175:152;;8:9:-1;5:2;;;30:1;27;20:12;5:2;175:152:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;175:152:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;333:103;382:6;400:29;;;;;;;;;;;;;;;;;;;;333:103;:::o;175:152::-;224:6;242:78;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;175:152;:::o",
+  "source": "pragma solidity 0.4.24;\n\n\nimport \"./Service.sol\";\n\n\n/**\n * Simple example service that returns the URL to a book download\n */\ncontract EBookDownloadService is Service {\n\n\n    function getFromService() external pure returns (string) {\n        return \"www.ebooks.com/fiftyShadesBarrelScraping_whatChristianGreysHamsterSaw\";\n    }\n\n    function getServiceName() external pure returns (string) {\n        return \"EBookDownloadService\";\n    }\n}\n",
+  "sourcePath": "/home/josh/Ethereum-Service-Provider/contracts/EBookDownloadService.sol",
   "ast": {
-    "absolutePath": "/home/josh/Ethereum-Service-Provider/contracts/FilmRentalService.sol",
+    "absolutePath": "/home/josh/Ethereum-Service-Provider/contracts/EBookDownloadService.sol",
     "exportedSymbols": {
-      "FilmRentalService": [
-        43
+      "EBookDownloadService": [
+        21
       ]
     },
-    "id": 44,
+    "id": 22,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 23,
+        "id": 1,
         "literals": [
           "solidity",
           "0.4",
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:0"
       },
       {
         "absolutePath": "/home/josh/Ethereum-Service-Provider/contracts/Service.sol",
         "file": "./Service.sol",
-        "id": 24,
+        "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 44,
+        "scope": 22,
         "sourceUnit": 114,
-        "src": "26:23:1",
+        "src": "26:23:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -73,69 +73,69 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 25,
+              "id": 3,
               "name": "Service",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 113,
-              "src": "147:7:1",
+              "src": "159:7:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_Service_$113",
                 "typeString": "contract Service"
               }
             },
-            "id": 26,
+            "id": 4,
             "nodeType": "InheritanceSpecifier",
-            "src": "147:7:1"
+            "src": "159:7:0"
           }
         ],
         "contractDependencies": [
           113
         ],
         "contractKind": "contract",
-        "documentation": "Simple example service that returns the URL to a film",
+        "documentation": "Simple example service that returns the URL to a book download",
         "fullyImplemented": true,
-        "id": 43,
+        "id": 21,
         "linearizedBaseContracts": [
-          43,
+          21,
           113
         ],
-        "name": "FilmRentalService",
+        "name": "EBookDownloadService",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 33,
+              "id": 11,
               "nodeType": "Block",
-              "src": "220:49:1",
+              "src": "232:95:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "hexValue": "7777772e6765744d7946696c6d2e636f6d2f6c6f67616e",
-                    "id": 31,
+                    "hexValue": "7777772e65626f6f6b732e636f6d2f666966747953686164657342617272656c5363726170696e675f7768617443687269737469616e477265797348616d73746572536177",
+                    "id": 9,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "string",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "237:25:1",
+                    "src": "249:71:0",
                     "subdenomination": null,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_stringliteral_edb0bbb240c58004a3d1d99c9fe4334ae5dc106bb9551390e85e2f8a52302f5d",
-                      "typeString": "literal_string \"www.getMyFilm.com/logan\""
+                      "typeIdentifier": "t_stringliteral_43765143f8fa30698a1c74684c21fd6a228ab7246f520e55aa4400299ada97da",
+                      "typeString": "literal_string \"www.ebooks.com/fiftyShadesBarrelScraping_whatChristianGreysHamsterSaw\""
                     },
-                    "value": "www.getMyFilm.com/logan"
+                    "value": "www.ebooks.com/fiftyShadesBarrelScraping_whatChristianGreysHamsterSaw"
                   },
-                  "functionReturnParameters": 30,
-                  "id": 32,
+                  "functionReturnParameters": 8,
+                  "id": 10,
                   "nodeType": "Return",
-                  "src": "230:32:1"
+                  "src": "242:78:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 34,
+            "id": 12,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -143,23 +143,23 @@
             "name": "getFromService",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 27,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "186:2:1"
+              "src": "198:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 30,
+              "id": 8,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 29,
+                  "id": 7,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 34,
-                  "src": "212:6:1",
+                  "scope": 12,
+                  "src": "224:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -167,10 +167,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 28,
+                    "id": 6,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "212:6:1",
+                    "src": "224:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -180,48 +180,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "211:8:1"
+              "src": "223:8:0"
             },
-            "scope": 43,
-            "src": "163:106:1",
+            "scope": 21,
+            "src": "175:152:0",
             "stateMutability": "pure",
             "superFunction": 107,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 41,
+              "id": 19,
               "nodeType": "Block",
-              "src": "332:41:1",
+              "src": "390:46:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "hexValue": "46696c6d52656e74616c53657276696365",
-                    "id": 39,
+                    "hexValue": "45426f6f6b446f776e6c6f616453657276696365",
+                    "id": 17,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "string",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "347:19:1",
+                    "src": "407:22:0",
                     "subdenomination": null,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_stringliteral_1ac679a5165590c12c1644df76686e9ce08dbb033cd819ec9d453601819fb610",
-                      "typeString": "literal_string \"FilmRentalService\""
+                      "typeIdentifier": "t_stringliteral_04ec255541081ef602e96fd4bd8f1dddcb5383e0e430369d614a642ac91b951e",
+                      "typeString": "literal_string \"EBookDownloadService\""
                     },
-                    "value": "FilmRentalService"
+                    "value": "EBookDownloadService"
                   },
-                  "functionReturnParameters": 38,
-                  "id": 40,
+                  "functionReturnParameters": 16,
+                  "id": 18,
                   "nodeType": "Return",
-                  "src": "340:26:1"
+                  "src": "400:29:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 42,
+            "id": 20,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -229,23 +229,23 @@
             "name": "getServiceName",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 35,
+              "id": 13,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "298:2:1"
+              "src": "356:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 38,
+              "id": 16,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 37,
+                  "id": 15,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 42,
-                  "src": "324:6:1",
+                  "scope": 20,
+                  "src": "382:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -253,10 +253,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 36,
+                    "id": 14,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "324:6:1",
+                    "src": "382:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -266,49 +266,49 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "323:8:1"
+              "src": "381:8:0"
             },
-            "scope": 43,
-            "src": "275:98:1",
+            "scope": 21,
+            "src": "333:103:0",
             "stateMutability": "pure",
             "superFunction": 112,
             "visibility": "external"
           }
         ],
-        "scope": 44,
-        "src": "117:258:1"
+        "scope": 22,
+        "src": "126:312:0"
       }
     ],
-    "src": "0:376:1"
+    "src": "0:439:0"
   },
   "legacyAST": {
-    "absolutePath": "/home/josh/Ethereum-Service-Provider/contracts/FilmRentalService.sol",
+    "absolutePath": "/home/josh/Ethereum-Service-Provider/contracts/EBookDownloadService.sol",
     "exportedSymbols": {
-      "FilmRentalService": [
-        43
+      "EBookDownloadService": [
+        21
       ]
     },
-    "id": 44,
+    "id": 22,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 23,
+        "id": 1,
         "literals": [
           "solidity",
           "0.4",
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:0"
       },
       {
         "absolutePath": "/home/josh/Ethereum-Service-Provider/contracts/Service.sol",
         "file": "./Service.sol",
-        "id": 24,
+        "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 44,
+        "scope": 22,
         "sourceUnit": 114,
-        "src": "26:23:1",
+        "src": "26:23:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -318,69 +318,69 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 25,
+              "id": 3,
               "name": "Service",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 113,
-              "src": "147:7:1",
+              "src": "159:7:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_Service_$113",
                 "typeString": "contract Service"
               }
             },
-            "id": 26,
+            "id": 4,
             "nodeType": "InheritanceSpecifier",
-            "src": "147:7:1"
+            "src": "159:7:0"
           }
         ],
         "contractDependencies": [
           113
         ],
         "contractKind": "contract",
-        "documentation": "Simple example service that returns the URL to a film",
+        "documentation": "Simple example service that returns the URL to a book download",
         "fullyImplemented": true,
-        "id": 43,
+        "id": 21,
         "linearizedBaseContracts": [
-          43,
+          21,
           113
         ],
-        "name": "FilmRentalService",
+        "name": "EBookDownloadService",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 33,
+              "id": 11,
               "nodeType": "Block",
-              "src": "220:49:1",
+              "src": "232:95:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "hexValue": "7777772e6765744d7946696c6d2e636f6d2f6c6f67616e",
-                    "id": 31,
+                    "hexValue": "7777772e65626f6f6b732e636f6d2f666966747953686164657342617272656c5363726170696e675f7768617443687269737469616e477265797348616d73746572536177",
+                    "id": 9,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "string",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "237:25:1",
+                    "src": "249:71:0",
                     "subdenomination": null,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_stringliteral_edb0bbb240c58004a3d1d99c9fe4334ae5dc106bb9551390e85e2f8a52302f5d",
-                      "typeString": "literal_string \"www.getMyFilm.com/logan\""
+                      "typeIdentifier": "t_stringliteral_43765143f8fa30698a1c74684c21fd6a228ab7246f520e55aa4400299ada97da",
+                      "typeString": "literal_string \"www.ebooks.com/fiftyShadesBarrelScraping_whatChristianGreysHamsterSaw\""
                     },
-                    "value": "www.getMyFilm.com/logan"
+                    "value": "www.ebooks.com/fiftyShadesBarrelScraping_whatChristianGreysHamsterSaw"
                   },
-                  "functionReturnParameters": 30,
-                  "id": 32,
+                  "functionReturnParameters": 8,
+                  "id": 10,
                   "nodeType": "Return",
-                  "src": "230:32:1"
+                  "src": "242:78:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 34,
+            "id": 12,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -388,23 +388,23 @@
             "name": "getFromService",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 27,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "186:2:1"
+              "src": "198:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 30,
+              "id": 8,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 29,
+                  "id": 7,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 34,
-                  "src": "212:6:1",
+                  "scope": 12,
+                  "src": "224:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -412,10 +412,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 28,
+                    "id": 6,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "212:6:1",
+                    "src": "224:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -425,48 +425,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "211:8:1"
+              "src": "223:8:0"
             },
-            "scope": 43,
-            "src": "163:106:1",
+            "scope": 21,
+            "src": "175:152:0",
             "stateMutability": "pure",
             "superFunction": 107,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 41,
+              "id": 19,
               "nodeType": "Block",
-              "src": "332:41:1",
+              "src": "390:46:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "hexValue": "46696c6d52656e74616c53657276696365",
-                    "id": 39,
+                    "hexValue": "45426f6f6b446f776e6c6f616453657276696365",
+                    "id": 17,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "string",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "347:19:1",
+                    "src": "407:22:0",
                     "subdenomination": null,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_stringliteral_1ac679a5165590c12c1644df76686e9ce08dbb033cd819ec9d453601819fb610",
-                      "typeString": "literal_string \"FilmRentalService\""
+                      "typeIdentifier": "t_stringliteral_04ec255541081ef602e96fd4bd8f1dddcb5383e0e430369d614a642ac91b951e",
+                      "typeString": "literal_string \"EBookDownloadService\""
                     },
-                    "value": "FilmRentalService"
+                    "value": "EBookDownloadService"
                   },
-                  "functionReturnParameters": 38,
-                  "id": 40,
+                  "functionReturnParameters": 16,
+                  "id": 18,
                   "nodeType": "Return",
-                  "src": "340:26:1"
+                  "src": "400:29:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 42,
+            "id": 20,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -474,23 +474,23 @@
             "name": "getServiceName",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 35,
+              "id": 13,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "298:2:1"
+              "src": "356:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 38,
+              "id": 16,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 37,
+                  "id": 15,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 42,
-                  "src": "324:6:1",
+                  "scope": 20,
+                  "src": "382:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -498,10 +498,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 36,
+                    "id": 14,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "324:6:1",
+                    "src": "382:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -511,20 +511,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "323:8:1"
+              "src": "381:8:0"
             },
-            "scope": 43,
-            "src": "275:98:1",
+            "scope": 21,
+            "src": "333:103:0",
             "stateMutability": "pure",
             "superFunction": 112,
             "visibility": "external"
           }
         ],
-        "scope": 44,
-        "src": "117:258:1"
+        "scope": 22,
+        "src": "126:312:0"
       }
     ],
-    "src": "0:376:1"
+    "src": "0:439:0"
   },
   "compiler": {
     "name": "solc",
@@ -534,10 +534,10 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0x345ca3e014aaf5dca488057592ee47305d9b3e10",
-      "transactionHash": "0x31fba01c00186079ef5526d669c6cdfdb79d526adf9e6c0aabad898537f256f6"
+      "address": "0x8f0483125fcb9aaaefa9209d8e9d7b9c8b9fb90f",
+      "transactionHash": "0xa22b705ce8a562eae6b555071e8a3a9fc5e8dc6999c1ba825db377933a9d429a"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-09-24T11:34:14.709Z"
+  "updatedAt": "2018-09-24T11:34:14.967Z"
 }
